@@ -1,74 +1,90 @@
-# React + TypeScript + Vite
+# 📘 React + TypeScript Flashcard Study App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight, customizable flashcard application built with **React**, **TypeScript**, and **Vite**.  
+This project was created to help prepare for **Junior Front-End / React Developer technical interviews** by studying concepts using interactive flashcards.
 
-Currently, two official plugins are available:
+The app supports categories (technical, behavioral, scenario), card flipping, and can be easily extended with new content.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ⚛️ Built with **React + TypeScript (Vite)**
+- 🎴 **Interactive flashcards** with flip animation
+- 🏷️ **Filter by category** (React, TypeScript, Next.js, Behavioral, Scenario)
+- 🔄 Shuffle / randomize cards
+- 📚 Organized interview questions and answers
+- 🧩 Simple data structure — all flashcards stored in `flashcards.ts`
+- 🎨 Styled with **Tailwind CSS**
+- 📱 Fully responsive design
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧩 Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React 18**
+- **TypeScript**
+- **Vite**
+- **Tailwind CSS**
+- **ESLint + Prettier** (optional)
+- **Netlify-ready** for deployment
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🔧 Installation & Setup
+
+### 1. Clone the repository
+``` bash
+git clone https://github.com/your-username/flashcard-react-app.git
+cd flashcard-react-app
+```
+### 2. Install dependencies
+```
+npm install
+```
+### 3. Start the development server
+```
+npm run dev
+```
+### 4. Build for production
+```
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🎴 Adding Your Own Flashcards
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+All flashcards live in:
 ```
-# flashcard-app
+src/data/flashcards.ts
+```
+
+Example:
+```
+export type Flashcard = {
+  id: number;
+  question: string;
+  answer: string;
+  category: "technical" | "behavioral" | "scenario";
+};
+
+export const flashcards: Flashcard[] = [
+  {
+    id: 1,
+    question: "What is a React component?",
+    answer: "A reusable UI function that returns JSX.",
+    category: "technical"
+  }
+];
+```
+---
+
+## 🧪 Future Enhancements
+
+- Dark mode toggle
+- Add-your-own-flashcard UI
+- LocalStorage saving
+- Study stats dashboard
+- Spaced repetition system
+- Animations with Framer Motion
